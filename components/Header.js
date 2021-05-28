@@ -8,11 +8,10 @@ const Header = () => {
     </View>
   )
 }
-
 const styles = StyleSheet.create({
 
   view:{
-    backgroundColor: '#ff1',
+    backgroundColor: '#f11',
     alignItems: 'center',
     alignContent: 'center',
     padding: 10,
