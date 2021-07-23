@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{ useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, TextAlignments } from 'react-native';
 
 export default function App() {
 
@@ -12,11 +12,11 @@ const [anotacao,setarAnotacao] = useState('Lorem ipsum dolor sit amet, consectet
     return(
       <View style={{flex:1}}>
         <StatusBar hidden />
-        <View style={styles.header}><Text style={{textAlign:'center',color:'white',fontSize:18}}>Aplicativo Anotação</Text></View>
+        <View style={styles.Header}><Text style={{textAlign:'center',color:'white',fontSize:18}}>Aplicativo Anotação</Text></View>
         
-        <View style={{padding:20}}><Text style={styles.anotacao}>{anotacao}</Text></View>
+        <View style={{padding:20}}><Text style={styles.Anotacao}>{anotacao}</Text></View>
 
-        <TouchableOpacity onPress={()=> setarEstado('atualizando')} style={styles.btnAnotacao}><Text style={styles.btnAnotacaoTexto}>+</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=> setarEstado('atualizando')} style={styles.AddAnotacao}><Text style={styles.TextoAddAnotacao}>+</Text></TouchableOpacity>
       </View>
       
     )
@@ -24,10 +24,11 @@ const [anotacao,setarAnotacao] = useState('Lorem ipsum dolor sit amet, consectet
       return(
       <View style={{flex:1}}>
         <StatusBar hidden />
-        <View style={styles.header}><Text style={{textAlign:'center',color:'white',fontSize:18}}>Aplicativo Anotação</Text></View>
+        <View style={styles.Header}><Text style={{textAlign:'center',color:'white',fontSize:18}}>Aplicativo Anotação</Text></View>
         
+        <TextInput style={styles.EditorText} onChangeText={(text)=> setarAnotacao(text)} multiline={true} numberOfLines={5} value={anotacao}></TextInput>
 
-        <TouchableOpacity onPress={()=> setarEstado('leitura')} style={styles.btnSalvar}><Text style={{textAlign:'center',color:'white'}}>Salvar</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=> setarEstado('leitura')} style={styles.SaveButton}><Text style={{textAlign:'center',color:'white'}}>Salvar</Text></TouchableOpacity>
       </View>
       );
     }
@@ -35,15 +36,16 @@ const [anotacao,setarAnotacao] = useState('Lorem ipsum dolor sit amet, consectet
 }
 
 const styles = StyleSheet.create({
-      header:{
+      Header:{
         width: '100%',
         padding: 15,
         backgroundColor: '#f11'
       },
-      anotacao:{
-        fontSize:13
+      Anotacao:{
+        fontSize:13,
+        textAlign: 'justify'
       },
-      btnAnotacao:{
+      AddAnotacao:{
         position:'absolute',
         right:20,
         bottom:20,
@@ -52,14 +54,14 @@ const styles = StyleSheet.create({
         backgroundColor:'#f11',
         borderRadius:25
       },
-      btnAnotacaoTexto:{
+      TextoAddAnotacao:{
         color:'white',
         position:'relative',
         textAlign:'center',
         top: 3,
         fontSize:30
       },
-      btnSalvar:{
+      SaveButton:{
         position:'absolute',
         right:20,
         bottom:20,
@@ -68,4 +70,12 @@ const styles = StyleSheet.create({
         paddingBottom:10,
         backgroundColor:'#f11',
       },
+      EditorText:{
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        height: 300,
+        textAlignVertical: 'top',
+        
+      }
 });
