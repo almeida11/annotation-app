@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{ useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, TextAlignments } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
 export default function App() {
 
@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
         marginRight: 10,
         height: 300,
         textAlignVertical: 'top',
-        
+
       }
 });
