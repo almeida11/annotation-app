@@ -76,6 +76,5 @@ const styles = StyleSheet.create({
         marginRight: 10,
         height: 300,
         textAlignVertical: 'top',
-
       }
 });
