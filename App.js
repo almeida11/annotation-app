@@ -6,7 +6,6 @@ export default function App() {
   //ESTADO DE LEITURA E ANOTAÇÃO E MODICADOR DE ANOTAÇÃO
   const [estado,setarEstado] = useState('leitura');
   const [anotacao,setarAnotacao] = useState('');    
-  //LER AS ANOTAÇÕES SALVAS
   
   //PÁGINA DE LEITURA DE ANOTAÇÃO
       if(estado == 'leitura'){
