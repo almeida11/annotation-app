@@ -7,25 +7,7 @@ export default function App() {
   const [estado,setarEstado] = useState('leitura');
   const [anotacao,setarAnotacao] = useState('');    
   //LER AS ANOTAÇÕES SALVAS
-  useEffect (() => {
-
-    (async() => {
-      try{
-        const anotacaoLeitura = await AsyncStorage.getItem('anotacao');
-        setarAnotacao(anotacaoLeitura);
-      }catch(error){}
-
-    })();
-
-  },[])
-  //SALVA A ANOTAÇÃO
-  setData = async() => {
-    try{
-        await AsyncStorage.setItem('anotacao', anotacao); 
-    }catch(error){
-
-    }
-  }
+  
   //PÁGINA DE LEITURA DE ANOTAÇÃO
       if(estado == 'leitura'){
       return(

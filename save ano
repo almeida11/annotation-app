@@ -1,0 +1,20 @@
+useEffect (() => {
+
+    (async() => {
+      try{
+        const anotacaoLeitura = await AsyncStorage.getItem('anotacao');
+        setarAnotacao(anotacaoLeitura);
+      }catch(error){}
+
+    })();
+
+  },[])
+  //SALVA A ANOTAÇÃO
+  setData = async() => {
+    try{
+        await AsyncStorage.setItem('anotacao', anotacao); 
+    }catch(error){
+
+    }
+  }
+  
