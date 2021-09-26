@@ -1,12 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{ useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, AsyncStorage} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, LogBox} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function App() {
   //ESTADO DE LEITURA E ANOTAÇÃO E MODICADOR DE ANOTAÇÃO
   const [estado,setarEstado] = useState('leitura');
-  const [anotacao,setarAnotacao] = useState('');    
+  const [anotacao,setarAnotacao] = useState('');  
+  //DESABILITA YELLOWBOX
+  LogBox.ignoreAllLogs(true);
   
+  const storeData = async (anotacao) => {
+    try {
+      await AsyncStorage.setItem('anotacao', anotacao)
+    } catch (e) {
+      // saving error
+    }
+  }
+  const getData = async () => {
+    try {
+      const LeituraAnotacao = await AsyncStorage.getItem(anotacao)
+      if(LeituraAnotacao !== null) {
+        // value previously stored
+      }
+    } catch(e) {
+      // error reading value
+    }
+  }
+
   //PÁGINA DE LEITURA DE ANOTAÇÃO
       if(estado == 'leitura'){
       return(
